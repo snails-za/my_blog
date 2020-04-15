@@ -1,0 +1,87 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block menu %}
+    {% include 'base/menu.html' %}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+{% endblock %}
+
+{#轮播图#}
+{% block swiper %}
+    <div class="swiper-container" id="topSwiper">
+        <div class="swiper-wrapper" style="margin-top: 60px">
+            {% for ad in ad_list %}
+                <div class="swiper-slide" align="center">
+                    <a href="#"><img class="slide_img" src="{{ MEDIA_URL }}{{ ad.image_url }}" alt=""></a>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+{% endblock %}
+{#正文#}
+{% block content %}
+    <div class="topnews" style="width: 90%">
+        <h2>最新文章</h2>
+        <div style="background-color: orange;width: 90%;height: 20px;"></div>
+        <div style="; height: 40px;"></div>
+
+        {% for article in page_article %}
+            <div class="blogs" style="margin-left: 0px">
+                <ul>
+                    <h3><a href="#"
+                           style="font-weight: bolder;line-height: 2px;color: black;font-size: 30px">{{ article.title }}</a>
+                    </h3>
+                    <p style="color: lightskyblue;width: 10%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{ article.desc }}</p>
+                    <p class="author"><span>作者:{{ article.user }}</span>&nbsp;{% for tag in article.tag.all %}
+                        <span>标签:{{ tag }}</span>
+                    {% endfor %}
+                        &nbsp;<span>发布日期：{{ article.date_publish|date:'Y-m-d' }}</span>
+                        &nbsp;<span style="float: right;margin-right: 15%">浏览(<a href="#">{{ article.click_count }}</a>)</span>
+                        &nbsp;<span style="float: right;margin-right: 5%">评论(<a
+                                href="#">{{ article.comment_set.all.count }}</a>)</span>
+                    </p>
+                </ul>
+                <div style="; height: 20px;"></div>
+                <div style="; width: 90%;height: 5px;background-color: lightgrey"></div>
+            </div>
+        {% endfor %}
+
+        <div style="width: 90%; height: 50px;"></div>
+        {#    分页#}
+        <div style="margin-left: 39%">
+            <a href="{% url 'blog:index' %}?page=1">首页</a>
+            {% if page_article.has_previous %}
+                <a href="{% url 'blog:index' %}?page={{ page_article.previous_page_number }}">上一页</a>
+            {% else %}
+                <a href="javascript:alert('已经是首页了！')">上一页</a>
+            {% endif %}
+
+            {% if page_article.has_next %}
+                <a href="{% url 'blog:index' %}?page={{ page_article.next_page_number }}">下一页</a>
+            {% else %}
+                <a href="javascript:alert('已经是最后一页了！')">下一页</a>
+            {% endif %}
+            <a href="{% url 'blog:index' %}?page={{ paginator.num_pages }}">末页</a>
+        </div>
+
+        <div style="width: 90%; height: 100px;"></div>
+        <p style="margin-left: 43%">学无止境</p>
+        <div style="width: 90%; height: 2px;background-color: orange;margin-bottom: 100px"></div>
+
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper.js' %}"></script>
+{% endblock %}
+
+

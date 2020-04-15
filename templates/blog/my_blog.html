@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的博客</title>
+    <script src='/static/js/tinymce/static/tiny_mce/tiny_mce.js'></script>
+    <script>
+        tinyMCE.init({
+            'mode': 'textareas',
+            'theme': 'advanced',
+            'width': 1000,
+            'height': 400
+        })
+    </script>
+</head>
+<body>
+<div class="col-lg-6" align="center">
+
+
+        <div _ngcontent-pkp-c9="" class="cnb-panel-header"> 添加随笔
+</div>
+        <form>
+            <div class="form-group">
+                {# 博客标题#}
+                标题： <input type="text" name="title" style="border: black solid 1px; width: 1000px; height: 20%">
+                {#博客内容#}
+                <div class="rich-text">
+                    <textarea class="content" name="content"></textarea>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" style="background-color: greenyellow">发  布</button>
+        </form>
+
+
+</div>
+</body>
+</html>

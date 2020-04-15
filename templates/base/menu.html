@@ -1,0 +1,17 @@
+<!--sidebar start-->
+
+<div id="sidebar" class="nav-collapse ">
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu">
+        {% for foo in catagory_list %}
+            <li class="active">
+                <a class="" href="#">
+                    <i class="icon_house_alt"></i>
+                    <span>{{ foo.name }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <!-- sidebar menu end-->
+</div>
+

@@ -1,0 +1,62 @@
+{#基础环境#}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'base/meta.html' %}
+    {% block meta %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    {% endblock %}
+
+    <title>{{ SITE_NAME }}</title>
+
+    {#css部分#}
+    {% include 'base/css.html' %}
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    {% endblock %}
+
+
+</head>
+<body>
+<section id="container" class="">
+
+    {#顶部部分#}
+    <header class="header dark-bg">
+        {% include 'base/top.html' %}
+    </header>
+
+    {#菜单部分#}
+    <aside>
+        {% block menu %}
+
+        {% endblock %}
+    </aside>
+
+    {#正文部分#}
+    <section id="main-content">
+        {#轮播图#}
+        {% block swiper %}
+
+        {% endblock %}
+
+        {% block content %}
+
+        {% endblock %}
+    </section>
+</section>
+
+{#js部分#}
+{% include 'base/js.html' %}
+{% block js %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    {# 底层的fontsize #}
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+{% endblock %}
+
+</body>
+</html>
