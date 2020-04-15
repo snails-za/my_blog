@@ -1,3 +1,5 @@
+import django_heroku
+import dj_database_url
 """
 Django settings for my_blog project.
 
@@ -43,6 +45,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -76,15 +79,19 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'my_blog',
+#         'HOST': '114.116.245.220',
+#         'PORT': 3307,
+#         'USER': 'root',
+#         'PASSWORD': '123456'
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'my_blog',
-        'HOST': '114.116.245.220',
-        'PORT': 3307,
-        'USER': 'root',
-        'PASSWORD': '123456'
-    }
+    'default': dj_database_url.config(default='postgres://localhost ')
 }
 
 # Password validation
@@ -117,6 +124,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -234,3 +243,6 @@ LOGGING = {
         }
     }
 }
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
