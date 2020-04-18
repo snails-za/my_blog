@@ -81,21 +81,21 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'my_blog',
-#         'HOST': '114.116.245.220',
-#         'PORT': 3307,
-#         'USER': 'root',
-#         'PASSWORD': '123456',
-#         'CONN_MAX_AGE': 500
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost ')
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'my_blog',
+        'HOST': '114.116.245.220',
+        'PORT': 3307,
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'CONN_MAX_AGE': 500
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default='postgres://localhost ')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
