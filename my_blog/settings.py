@@ -42,10 +42,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -79,20 +81,21 @@ WSGI_APPLICATION = 'my_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'my_blog',
-#         'HOST': '114.116.245.220',
-#         'PORT': 3307,
-#         'USER': 'root',
-#         'PASSWORD': '123456'
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost ')
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'my_blog',
+        'HOST': '114.116.245.220',
+        'PORT': 3307,
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'CONN_MAX_AGE': 500
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default='postgres://localhost ')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -125,7 +128,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -136,6 +138,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # 自定义用户model
 AUTH_USER_MODEL = 'blog.User'

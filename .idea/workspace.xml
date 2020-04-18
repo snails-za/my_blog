@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="004f4724-3945-48f1-a200-279e071fb37d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/staticfiles/init1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZgYqpZbBcduc050VzqwempJiaW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -224,7 +227,7 @@
       <workItem from="1586683613487" duration="1440000" />
       <workItem from="1586937941639" duration="3322000" />
       <workItem from="1586953054388" duration="2841000" />
-      <workItem from="1587175777247" duration="1262000" />
+      <workItem from="1587175777247" duration="2444000" />
     </task>
     <servers />
   </component>
@@ -240,10 +243,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1586358893878" />
-    <state x="418" y="172" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586358964982">
+    <state x="418" y="172" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587178024063">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="418" y="172" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1586358964982" />
+    <state x="418" y="172" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587178024063" />
     <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585670751425">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
